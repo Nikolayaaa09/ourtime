@@ -1,1 +1,1730 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>OurTime 💙</title>
+
+
+    <style>
+
+        /* =========================================
+           BASIC
+        ========================================= */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    #123b50,
+                    #05090d 45%,
+                    #020304
+                );
+
+            color: white;
+
+            overflow-x: hidden;
+
+        }
+
+
+        /* =========================================
+           GLOWING BACKGROUND
+        ========================================= */
+
+        body::before {
+
+            content: "";
+
+            position: fixed;
+
+            width: 350px;
+            height: 350px;
+
+            background: #00cfff;
+
+            border-radius: 50%;
+
+            filter: blur(150px);
+
+            opacity: 0.12;
+
+            top: -100px;
+            left: -100px;
+
+            z-index: -1;
+
+        }
+
+
+        body::after {
+
+            content: "";
+
+            position: fixed;
+
+            width: 300px;
+            height: 300px;
+
+            background: #008cff;
+
+            border-radius: 50%;
+
+            filter: blur(150px);
+
+            opacity: 0.10;
+
+            bottom: -100px;
+            right: -100px;
+
+            z-index: -1;
+
+        }
+
+
+        /* =========================================
+           APP CONTAINER
+        ========================================= */
+
+        .app {
+
+            width: 100%;
+
+            max-width: 1050px;
+
+            margin: auto;
+
+            padding: 25px;
+
+        }
+
+
+        /* =========================================
+           NAVBAR
+        ========================================= */
+
+        .navbar {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 15px 5px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .logo {
+
+            font-size: 25px;
+
+            font-weight: bold;
+
+            color: #8eeaff;
+
+            text-shadow:
+                0 0 10px #00cfff,
+                0 0 25px #00cfff;
+
+        }
+
+
+        .logo span {
+
+            color: white;
+
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+
+            position: relative;
+
+            text-align: center;
+
+            padding: 55px 25px;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(0, 191, 255, 0.12),
+                    rgba(0, 0, 0, 0.65)
+                );
+
+            border: 1px solid rgba(0, 207, 255, 0.25);
+
+            box-shadow:
+                0 0 25px rgba(0, 207, 255, 0.12),
+                inset 0 0 30px rgba(0, 207, 255, 0.03);
+
+            overflow: hidden;
+
+        }
+
+
+        .hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            border-radius: 50%;
+
+            background: #00cfff;
+
+            filter: blur(100px);
+
+            opacity: 0.12;
+
+            left: 50%;
+
+            top: -100px;
+
+            transform: translateX(-50%);
+
+        }
+
+
+        .heart {
+
+            font-size: 45px;
+
+            margin-bottom: 10px;
+
+            animation: pulse 2s infinite;
+
+            filter:
+                drop-shadow(0 0 10px #00cfff);
+
+        }
+
+
+        @keyframes pulse {
+
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+        }
+
+
+        .hero h1 {
+
+            font-size: clamp(40px, 8vw, 75px);
+
+            letter-spacing: 5px;
+
+            color: #9cecff;
+
+            text-shadow:
+                0 0 10px #00cfff,
+                0 0 25px #00cfff,
+                0 0 50px #0077ff;
+
+        }
+
+
+        .hero p {
+
+            color: #aab8c0;
+
+            margin-top: 8px;
+
+        }
+
+
+        /* =========================================
+           COUNTER
+        ========================================= */
+
+        .counter {
+
+            margin-top: 35px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(6, 1fr);
+
+            gap: 10px;
+
+        }
+
+
+        .counter-box {
+
+            padding: 17px 5px;
+
+            background: rgba(0, 0, 0, 0.45);
+
+            border-radius: 15px;
+
+            border: 1px solid
+                    rgba(0, 207, 255, 0.18);
+
+        }
+
+
+        .counter-number {
+
+            font-size: 28px;
+
+            font-weight: bold;
+
+            color: #8eeaff;
+
+            text-shadow:
+                0 0 10px #00cfff;
+
+        }
+
+
+        .counter-label {
+
+            font-size: 11px;
+
+            color: #7d8c94;
+
+            margin-top: 4px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .since {
+
+            margin-top: 25px;
+
+            color: #8e9da5;
+
+            font-size: 14px;
+
+        }
+
+
+        /* =========================================
+           ADD BUTTON
+        ========================================= */
+
+        .add-memory {
+
+            margin-top: 25px;
+
+            padding: 14px 25px;
+
+            border-radius: 30px;
+
+            border: 1px solid #00cfff;
+
+            background: #00aeda;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 0 10px rgba(0, 207, 255, 0.5),
+                0 0 25px rgba(0, 207, 255, 0.2);
+
+            transition: 0.2s;
+
+        }
+
+
+        .add-memory:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 0 15px #00cfff,
+                0 0 35px rgba(0, 207, 255, 0.4);
+
+        }
+
+
+        /* =========================================
+           SECTION
+        ========================================= */
+
+        .section-title {
+
+            margin: 40px 0 20px;
+
+            font-size: 25px;
+
+            color: #9cecff;
+
+            text-shadow:
+                0 0 10px rgba(0, 207, 255, 0.6);
+
+        }
+
+
+        /* =========================================
+           MEMORY GRID
+        ========================================= */
+
+        .memory-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+
+        }
+
+
+        .memory-card {
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(16, 27, 34, 0.95),
+                    rgba(3, 7, 10, 0.98)
+                );
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            border: 1px solid
+                    rgba(0, 207, 255, 0.16);
+
+            box-shadow:
+                0 5px 25px rgba(0,0,0,0.3);
+
+            transition: 0.25s;
+
+        }
+
+
+        .memory-card:hover {
+
+            transform: translateY(-5px);
+
+            border-color:
+                rgba(0, 207, 255, 0.55);
+
+            box-shadow:
+                0 0 20px
+                rgba(0, 207, 255, 0.18);
+
+        }
+
+
+        .memory-image {
+
+            width: 100%;
+
+            height: 230px;
+
+            object-fit: cover;
+
+            display: block;
+
+        }
+
+
+        .memory-content {
+
+            padding: 18px;
+
+        }
+
+
+        .memory-title {
+
+            font-size: 20px;
+
+            color: #a6edff;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .memory-date {
+
+            font-size: 13px;
+
+            color: #00cfff;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .memory-description {
+
+            color: #a0abb0;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+
+        }
+
+
+        .memory-age {
+
+            margin-top: 12px;
+
+            color: #707d84;
+
+            font-size: 12px;
+
+        }
+
+
+        .delete-btn {
+
+            margin-top: 15px;
+
+            padding: 7px 12px;
+
+            background: transparent;
+
+            color: #ff7185;
+
+            border: 1px solid
+                    rgba(255, 113, 133, 0.3);
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+        }
+
+
+        /* =========================================
+           EMPTY STATE
+        ========================================= */
+
+        .empty {
+
+            text-align: center;
+
+            padding: 50px 20px;
+
+            border: 1px dashed
+                    rgba(0, 207, 255, 0.25);
+
+            border-radius: 20px;
+
+            color: #74838b;
+
+        }
+
+
+        .empty-icon {
+
+            font-size: 40px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        /* =========================================
+           MODAL
+        ========================================= */
+
+        .modal {
+
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            background:
+                rgba(0, 0, 0, 0.78);
+
+            backdrop-filter: blur(8px);
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 20px;
+
+            z-index: 100;
+
+        }
+
+
+        .modal-content {
+
+            width: 100%;
+
+            max-width: 500px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #0d1d25,
+                    #030608
+                );
+
+            border-radius: 22px;
+
+            padding: 25px;
+
+            border: 1px solid
+                    rgba(0, 207, 255, 0.3);
+
+            box-shadow:
+                0 0 40px
+                rgba(0, 207, 255, 0.18);
+
+        }
+
+
+        .modal-content h2 {
+
+            color: #9cecff;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .form-group {
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #a9b7bd;
+
+            font-size: 14px;
+
+        }
+
+
+        .form-group input,
+        .form-group textarea {
+
+            width: 100%;
+
+            padding: 12px;
+
+            border-radius: 10px;
+
+            border: 1px solid
+                    rgba(0, 207, 255, 0.2);
+
+            background: #071116;
+
+            color: white;
+
+            outline: none;
+
+        }
+
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+
+            border-color: #00cfff;
+
+            box-shadow:
+                0 0 10px
+                rgba(0, 207, 255, 0.15);
+
+        }
+
+
+        .form-group textarea {
+
+            min-height: 100px;
+
+            resize: vertical;
+
+        }
+
+
+        .modal-buttons {
+
+            display: flex;
+
+            gap: 10px;
+
+            margin-top: 20px;
+
+        }
+
+
+        .save-btn {
+
+            flex: 1;
+
+            padding: 12px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #00aeda;
+
+            color: white;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+
+        .cancel-btn {
+
+            flex: 1;
+
+            padding: 12px;
+
+            border-radius: 10px;
+
+            border: 1px solid #36464d;
+
+            background: transparent;
+
+            color: #aaa;
+
+            cursor: pointer;
+
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 800px) {
+
+            .memory-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+            .counter {
+
+                grid-template-columns:
+                    repeat(3, 1fr);
+
+            }
+
+        }
+
+
+        @media (max-width: 550px) {
+
+            .app {
+
+                padding: 15px;
+
+            }
+
+
+            .hero {
+
+                padding: 40px 15px;
+
+            }
+
+
+            .memory-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .counter {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+
+            .memory-image {
+
+                height: 260px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+    <!-- =========================================
+         NAVBAR
+    ========================================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            OUR<span>TIME</span>
+        </div>
+
+    </nav>
+
+
+    <!-- =========================================
+         HERO
+    ========================================== -->
+
+    <section class="hero">
+
+        <div class="heart">
+            💙
+        </div>
+
+
+        <h1>OURTIME</h1>
+
+        <p>
+            Every moment has a story.
+        </p>
+
+
+        <!-- COUNTER -->
+
+        <div class="counter">
+
+            <div class="counter-box">
+
+                <div
+                    class="counter-number"
+                    id="years">
+                    0
+                </div>
+
+                <div class="counter-label">
+                    Years
+                </div>
+
+            </div>
+
+
+            <div class="counter-box">
+
+                <div
+                    class="counter-number"
+                    id="months">
+                    0
+                </div>
+
+                <div class="counter-label">
+                    Months
+                </div>
+
+            </div>
+
+
+            <div class="counter-box">
+
+                <div
+                    class="counter-number"
+                    id="days">
+                    0
+                </div>
+
+                <div class="counter-label">
+                    Days
+                </div>
+
+            </div>
+
+
+            <div class="counter-box">
+
+                <div
+                    class="counter-number"
+                    id="hours">
+                    0
+                </div>
+
+                <div class="counter-label">
+                    Hours
+                </div>
+
+            </div>
+
+
+            <div class="counter-box">
+
+                <div
+                    class="counter-number"
+                    id="minutes">
+                    0
+                </div>
+
+                <div class="counter-label">
+                    Minutes
+                </div>
+
+            </div>
+
+
+            <div class="counter-box">
+
+                <div
+                    class="counter-number"
+                    id="seconds">
+                    0
+                </div>
+
+                <div class="counter-label">
+                    Seconds
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <p
+            class="since"
+            id="sinceText">
+            Set your relationship date below.
+        </p>
+
+
+        <button
+            class="add-memory"
+            onclick="openModal()">
+
+            ＋ Add Memory
+
+        </button>
+
+    </section>
+
+
+    <!-- =========================================
+         MEMORIES
+    ========================================== -->
+
+    <h2 class="section-title">
+        ✦ Our Memories
+    </h2>
+
+
+    <div
+        class="memory-grid"
+        id="memoryGrid">
+
+    </div>
+
+
+</div>
+
+
+<!-- =========================================
+     MODAL
+========================================== -->
+
+<div
+    class="modal"
+    id="memoryModal">
+
+    <div class="modal-content">
+
+        <h2>
+            💙 Add a Memory
+        </h2>
+
+
+        <div class="form-group">
+
+            <label>
+                Memory Title
+            </label>
+
+            <input
+                type="text"
+                id="memoryTitle"
+                placeholder="Example: Our First Date">
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Date
+            </label>
+
+            <input
+                type="date"
+                id="memoryDate">
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Choose Picture
+            </label>
+
+            <input
+                type="file"
+                id="memoryImage"
+                accept="image/*">
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Description / Message
+            </label>
+
+            <textarea
+                id="memoryDescription"
+                placeholder="Write something about this memory...">
+            </textarea>
+
+        </div>
+
+
+        <div class="modal-buttons">
+
+            <button
+                class="cancel-btn"
+                onclick="closeModal()">
+
+                Cancel
+
+            </button>
+
+
+            <button
+                class="save-btn"
+                onclick="saveMemory()">
+
+                Save Memory 💙
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+
+    /* =========================================
+       RELATIONSHIP START DATE
+       
+       CHANGE THIS DATE TO YOUR ACTUAL DATE.
+       
+       Format:
+       YYYY-MM-DD
+       
+       Example:
+       2025-09-06
+    ========================================== */
+
+    const relationshipStart =
+        new Date("2025-09-06T00:00:00");
+
+
+    /* =========================================
+       TIMER
+    ========================================== */
+
+    function updateRelationshipTimer() {
+
+        const now =
+            new Date();
+
+
+        let years =
+            now.getFullYear()
+            - relationshipStart.getFullYear();
+
+
+        let months =
+            now.getMonth()
+            - relationshipStart.getMonth();
+
+
+        let days =
+            now.getDate()
+            - relationshipStart.getDate();
+
+
+        let hours =
+            now.getHours()
+            - relationshipStart.getHours();
+
+
+        let minutes =
+            now.getMinutes()
+            - relationshipStart.getMinutes();
+
+
+        let seconds =
+            now.getSeconds()
+            - relationshipStart.getSeconds();
+
+
+        if (seconds < 0) {
+
+            seconds += 60;
+
+            minutes--;
+
+        }
+
+
+        if (minutes < 0) {
+
+            minutes += 60;
+
+            hours--;
+
+        }
+
+
+        if (hours < 0) {
+
+            hours += 24;
+
+            days--;
+
+        }
+
+
+        if (days < 0) {
+
+            const previousMonth =
+                new Date(
+                    now.getFullYear(),
+                    now.getMonth(),
+                    0
+                ).getDate();
+
+
+            days += previousMonth;
+
+            months--;
+
+        }
+
+
+        if (months < 0) {
+
+            months += 12;
+
+            years--;
+
+        }
+
+
+        document.getElementById("years")
+            .textContent = years;
+
+
+        document.getElementById("months")
+            .textContent = months;
+
+
+        document.getElementById("days")
+            .textContent = days;
+
+
+        document.getElementById("hours")
+            .textContent = hours;
+
+
+        document.getElementById("minutes")
+            .textContent = minutes;
+
+
+        document.getElementById("seconds")
+            .textContent = seconds;
+
+
+        document.getElementById("sinceText")
+            .textContent =
+            "Our story started on " +
+            relationshipStart.toLocaleDateString(
+                "en-US",
+                {
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric"
+                }
+            );
+
+    }
+
+
+    setInterval(
+        updateRelationshipTimer,
+        1000
+    );
+
+
+    updateRelationshipTimer();
+
+
+    /* =========================================
+       MODAL
+    ========================================== */
+
+    function openModal() {
+
+        document.getElementById(
+            "memoryModal"
+        ).style.display = "flex";
+
+    }
+
+
+    function closeModal() {
+
+        document.getElementById(
+            "memoryModal"
+        ).style.display = "none";
+
+    }
+
+
+    /* =========================================
+       SAVE MEMORY
+    ========================================== */
+
+    function saveMemory() {
+
+        const title =
+            document.getElementById(
+                "memoryTitle"
+            ).value.trim();
+
+
+        const date =
+            document.getElementById(
+                "memoryDate"
+            ).value;
+
+
+        const description =
+            document.getElementById(
+                "memoryDescription"
+            ).value.trim();
+
+
+        const imageInput =
+            document.getElementById(
+                "memoryImage"
+            );
+
+
+        if (
+            title === "" ||
+            date === "" ||
+            imageInput.files.length === 0
+        ) {
+
+            alert(
+                "Please enter a title, date, and picture."
+            );
+
+            return;
+
+        }
+
+
+        const file =
+            imageInput.files[0];
+
+
+        const reader =
+            new FileReader();
+
+
+        reader.onload = function(event) {
+
+            const memory = {
+
+                id: Date.now(),
+
+                title: title,
+
+                date: date,
+
+                description: description,
+
+                image: event.target.result
+
+            };
+
+
+            let memories =
+                JSON.parse(
+                    localStorage.getItem(
+                        "ourtimeMemories"
+                    )
+                ) || [];
+
+
+            memories.push(memory);
+
+
+            localStorage.setItem(
+                "ourtimeMemories",
+                JSON.stringify(memories)
+            );
+
+
+            displayMemories();
+
+
+            closeModal();
+
+
+            clearForm();
+
+        };
+
+
+        reader.readAsDataURL(file);
+
+    }
+
+
+    /* =========================================
+       DISPLAY MEMORIES
+    ========================================== */
+
+    function displayMemories() {
+
+        const grid =
+            document.getElementById(
+                "memoryGrid"
+            );
+
+
+        let memories =
+            JSON.parse(
+                localStorage.getItem(
+                    "ourtimeMemories"
+                )
+            ) || [];
+
+
+        if (memories.length === 0) {
+
+            grid.innerHTML = `
+
+                <div class="empty">
+
+                    <div class="empty-icon">
+                        📸
+                    </div>
+
+                    <p>
+                        Your memories will appear here.
+                    </p>
+
+                    <p>
+                        Click "Add Memory" to save your
+                        first moment.
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        memories.sort(
+            (a, b) =>
+                new Date(b.date)
+                -
+                new Date(a.date)
+        );
+
+
+        grid.innerHTML = "";
+
+
+        memories.forEach(
+            function(memory) {
+
+                const card =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                card.className =
+                    "memory-card";
+
+
+                card.innerHTML = `
+
+                    <img
+                        src="${memory.image}"
+                        class="memory-image"
+                        alt="Memory">
+
+                    <div class="memory-content">
+
+                        <div class="memory-title">
+
+                            ${escapeHTML(
+                                memory.title
+                            )}
+
+                        </div>
+
+
+                        <div class="memory-date">
+
+                            📅
+                            ${formatDate(
+                                memory.date
+                            )}
+
+                        </div>
+
+
+                        <div class="memory-description">
+
+                            ${
+                                memory.description
+                                ?
+                                escapeHTML(
+                                    memory.description
+                                )
+                                :
+                                "No description."
+                            }
+
+                        </div>
+
+
+                        <div class="memory-age">
+
+                            ${getMemoryAge(
+                                memory.date
+                            )}
+
+                        </div>
+
+
+                        <button
+                            class="delete-btn"
+                            onclick="deleteMemory(
+                                ${memory.id}
+                            )">
+
+                            🗑 Delete
+
+                        </button>
+
+                    </div>
+
+                `;
+
+
+                grid.appendChild(card);
+
+            }
+        );
+
+    }
+
+
+    /* =========================================
+       MEMORY AGE
+    ========================================== */
+
+    function getMemoryAge(dateString) {
+
+        const date =
+            new Date(
+                dateString + "T00:00:00"
+            );
+
+
+        const now =
+            new Date();
+
+
+        const difference =
+            now - date;
+
+
+        const days =
+            Math.floor(
+                difference /
+                (1000 * 60 * 60 * 24)
+            );
+
+
+        if (days < 0) {
+
+            return "Upcoming memory";
+
+        }
+
+
+        if (days === 0) {
+
+            return "Today 💙";
+
+        }
+
+
+        if (days === 1) {
+
+            return "Yesterday";
+
+        }
+
+
+        if (days < 30) {
+
+            return days +
+                " days ago";
+
+        }
+
+
+        if (days < 365) {
+
+            const months =
+                Math.floor(
+                    days / 30
+                );
+
+            return months +
+                (months === 1
+                    ? " month ago"
+                    : " months ago");
+
+        }
+
+
+        const years =
+            Math.floor(
+                days / 365
+            );
+
+
+        return years +
+            (years === 1
+                ? " year ago"
+                : " years ago");
+
+    }
+
+
+    /* =========================================
+       DELETE
+    ========================================== */
+
+    function deleteMemory(id) {
+
+        const confirmDelete =
+            confirm(
+                "Delete this memory?"
+            );
+
+
+        if (!confirmDelete) {
+
+            return;
+
+        }
+
+
+        let memories =
+            JSON.parse(
+                localStorage.getItem(
+                    "ourtimeMemories"
+                )
+            ) || [];
+
+
+        memories =
+            memories.filter(
+                function(memory) {
+
+                    return memory.id !== id;
+
+                }
+            );
+
+
+        localStorage.setItem(
+            "ourtimeMemories",
+            JSON.stringify(memories)
+        );
+
+
+        displayMemories();
+
+    }
+
+
+    /* =========================================
+       CLEAR FORM
+    ========================================== */
+
+    function clearForm() {
+
+        document.getElementById(
+            "memoryTitle"
+        ).value = "";
+
+
+        document.getElementById(
+            "memoryDate"
+        ).value = "";
+
+
+        document.getElementById(
+            "memoryImage"
+        ).value = "";
+
+
+        document.getElementById(
+            "memoryDescription"
+        ).value = "";
+
+    }
+
+
+    /* =========================================
+       FORMAT DATE
+    ========================================== */
+
+    function formatDate(dateString) {
+
+        const date =
+            new Date(
+                dateString + "T00:00:00"
+            );
+
+
+        return date.toLocaleDateString(
+            "en-US",
+            {
+                month: "long",
+                day: "numeric",
+                year: "numeric"
+            }
+        );
+
+    }
+
+
+    /* =========================================
+       HTML ESCAPE
+    ========================================== */
+
+    function escapeHTML(text) {
+
+        const div =
+            document.createElement(
+                "div"
+            );
+
+
+        div.textContent =
+            text;
+
+
+        return div.innerHTML;
+
+    }
+
+
+    /* =========================================
+       LOAD MEMORIES
+    ========================================== */
+
+    displayMemories();
+
+
+</script>
+
+
+</body>
+
+</html>
+```
 
